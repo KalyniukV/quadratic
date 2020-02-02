@@ -1,0 +1,11 @@
+com\test\quadratic\config\WebConfig.class
+com\test\quadratic\service\CommonServiceImpl.class
+com\test\quadratic\service\EquationServiceImpl.class
+com\test\quadratic\service\CommonService.class
+com\test\quadratic\repos\EquationRepo.class
+com\test\quadratic\service\EquationService.class
+com\test\quadratic\controller\MainController.class
+com\test\quadratic\entity\Equation.class
+com\test\quadratic\config\JpaConfig.class
+com\test\quadratic\config\WebAppInitializer.class
+com\test\quadratic\exception\CalculationException.class
