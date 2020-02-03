@@ -10,25 +10,25 @@ import java.math.BigDecimal;
 @Service("commonService")
 public class CommonServiceImpl implements CommonService {
 
-    public Equation setCalculation(String valA, String valB, String valC) {
-        BigDecimal a = new BigDecimal(valA);
-        BigDecimal b = new BigDecimal(valB);
-        BigDecimal c = new BigDecimal(valC);
+    public Equation setCalculation(String a, String b, String c) {
+        BigDecimal valA = new BigDecimal(a);
+        BigDecimal valB = new BigDecimal(b);
+        BigDecimal valC = new BigDecimal(c);
 
-        BigDecimal x1 = null;
-        BigDecimal x2 = null;
+        BigDecimal resX1 = null;
+        BigDecimal resX2 = null;
 
-        BigDecimal descr = b.pow(2).subtract(new BigDecimal(4).multiply(a).multiply(c));
+        BigDecimal descr = valB.pow(2).subtract(new BigDecimal(4).multiply(valA).multiply(valC));
         if (descr.compareTo(BigDecimal.ZERO) > 0) {
-            x1 = (b.negate().subtract(getSqrt(descr))).divide(new BigDecimal(2).multiply(a));
-            x2 = (b.negate().add(getSqrt(descr))).divide(new BigDecimal(2).multiply(a));
+            resX1 = (valB.negate().subtract(getSqrt(descr))).divide(new BigDecimal(2).multiply(valA));
+            resX2 = (valB.negate().add(getSqrt(descr))).divide(new BigDecimal(2).multiply(valA));
         } else if (descr.compareTo(BigDecimal.ZERO) == 0) {
-            x1 = b.negate().divide(new BigDecimal(2).multiply(a));
+            resX1 = valB.negate().divide(new BigDecimal(2).multiply(valA));
         } else {
             throw new CalculationException();
         }
 
-        return new Equation(a, b, c, x1, x2);
+        return new Equation(valA, valB, valC, resX1, resX2);
     }
 
     private BigDecimal getSqrt(BigDecimal value) {

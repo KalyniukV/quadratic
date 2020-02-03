@@ -41,7 +41,7 @@ public class MainController {
             try {
                 equationService.save(commonService.setCalculation(valA, valB, valC));
             } catch (CalculationException e) {
-                String alert = "<script>window.onload = function(){alert( 'Дискримінант менше нуля');};</script>";
+                String alert = e.getMessage();
                 model.addAttribute("alert", alert);
             }
         }

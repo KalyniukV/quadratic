@@ -9,7 +9,7 @@
 </head>
 <body>
     <c:if test="${alert != null}">
-        ${alert}
+       <script>window.onload = function(){alert('${alert}');};</script>
     </c:if>
 <h2>ax&sup2; + bx + c = 0</h2>
 <div>
