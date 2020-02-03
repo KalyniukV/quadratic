@@ -24,8 +24,7 @@ public class CommonTest {
     public void setUp() {
         ctx = new AnnotationConfigApplicationContext(JpaConfig.class);
         commonService = ctx.getBean(CommonServiceImpl.class);
-        Assert.assertNotNull(commonService);
-        commonService = new CommonServiceImpl();
+        Assert.assertNotNull(commonService);        
     }
 
 
