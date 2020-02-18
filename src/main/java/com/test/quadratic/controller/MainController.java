@@ -37,6 +37,7 @@ public class MainController {
             Model model
     ) {
         if ( (new BigDecimal(valA).compareTo(BigDecimal.ZERO) == 0) ) {
+            model.addAttribute("alert", "А не може дорівнювати нулю");
         } else {
             try {
                 equationService.save(commonService.setCalculation(valA, valB, valC));
@@ -44,10 +45,12 @@ public class MainController {
                 String alert = e.getMessage();
                 model.addAttribute("alert", alert);
             }
+
+            List<Equation> equations = equationService.findAll();
+            model.addAttribute("equations", equations);
         }
 
-        List<Equation> equations = equationService.findAll();
-        model.addAttribute("equations", equations);
+
 
         return "index";
     }
